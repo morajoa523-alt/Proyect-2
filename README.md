@@ -1,4 +1,5 @@
-Sistema de Evaluación Nutricional Infantil en Ecuador
+#Sistema de Evaluación Nutricional Infantil en Ecuador
+
 Descripción del proyecto
 Este proyecto consiste en el desarrollo de un programa orientado a la evaluación del estado nutricional de niños en Ecuador, utilizando cálculos estadísticos basados en la desviación estándar (DE) y valores de referencia establecidos por la Organización Mundial de la Salud (OMS) para la evaluación del crecimiento y desarrollo infantil.
 
