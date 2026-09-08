@@ -1,0 +1,354 @@
+/* ===============================
+   VARIABLES GLOBALES
+=============================== */
+:root {
+   --primary: #032757;
+  --female: #BD004E;
+  --bg: #F2EBEB;
+  --text: #0A0000;
+  --white: #ffffff;
+
+  --sidebar-width: 200px;
+  --gap: 10px;
+  --radius: 6px;
+
+  --sidebar-bg: #032757;
+  --sidebar-hover: #334155;
+  --sidebar-text: #e5e7eb;
+
+
+
+
+
+  --bg-main: #f8fafc;
+  --bg-panel: #ffffff;
+  --bg-table-head: #f1f5f9;
+
+  
+  --primary-hover: #1d4ed8;
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+}
+
+/* ===============================
+   RESET
+=============================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+/* =====================================================
+   SIDEBAR UNIVERSAL
+===================================================== */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-color: var(--sidebar-bg);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 16px 0;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.25);
+  z-index: 1000;
+}
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 18px;
+  margin: 3px 10px;
+
+  color: var(--sidebar-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 6px;
+
+  transition: all 0.2s ease;
+}
+
+.sidebar a:hover {
+  background-color: var(--sidebar-hover);
+  color: var(--white);
+  transform: translateX(3px);
+}
+
+.sidebar a.active {
+  background-color: var(--primary);
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* Cerrar sesión separado */
+.sidebar a:last-child {
+  margin-top: auto;
+  background-color: var(--female);
+  color: var(--white);
+}
+
+.sidebar a:last-child:hover {
+  background-color: #a50043;
+}
+
+/* ===============================
+   CONTENIDO PRINCIPAL
+=============================== */
+.content-base {
+  margin-left: var(--sidebar-width);
+  padding: var(--gap);
+  min-height: 100vh;
+}
+
+/* ===============================
+   BLOQUE SUPERIOR (GRID)
+=============================== */
+.top-panels {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--gap);
+  margin-bottom: var(--gap);
+}
+
+/* ===============================
+   PANEL BASE
+=============================== */
+.panel {
+  background: var(--bg-panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: calc(var(--gap) + 4px);
+  display: flex;
+  flex-direction: column;
+}
+
+.panel h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 var(--gap);
+}
+
+/* ===============================
+   PANEL USUARIO
+=============================== */
+.user-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.user-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--bg-main);
+  border-radius: 10px;
+}
+
+.user-row .label {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* ===============================
+   PANEL REGISTRO
+=============================== */
+.form-user {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* ===============================
+   BOTONES
+=============================== */
+.btn-primary {
+  margin-top: 6px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-edit {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.btn-delete {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* ===============================
+   TABLA
+=============================== */
+.table-container {
+  overflow-x: auto;
+}
+
+.tabla-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--gap);
+}
+
+.tabla-usuarios th,
+.tabla-usuarios td {
+  padding: 14px 16px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.tabla-usuarios thead {
+  background: var(--bg-table-head);
+}
+
+.tabla-usuarios tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.tabla-usuarios tbody tr:hover {
+  background: var(--bg-main);
+}
+
+/* ===============================
+   SELECTOR DE AÑO - SIDEBAR
+================================ */
+.year-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: calc(100% - 16px); /* ⬅ evita overflow */
+  margin: 0 auto 12px;      /* ⬅ centrado real */
+
+  padding: 6px;
+  gap: 6px;
+
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+/* INPUT AÑO */
+.year-selector input {
+  width: 48px;
+  min-width: 48px;
+
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+
+  background: transparent;
+  border: none;
+  color: #ffffff;
+
+  pointer-events: none;
+}
+
+/* BOTONES FLECHA */
+.year-btn {
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 255, 255, 0.18);
+  border: none;
+  color: #ffffff;
+
+  font-size: 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.year-btn:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 1024px) {
+  .top-panels {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .content-base {
+    margin-left: 0;
+    padding: 16px;
+  }
+}

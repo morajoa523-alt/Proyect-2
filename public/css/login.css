@@ -1,0 +1,137 @@
+/* ===============================
+   RESET BÁSICO
+=============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ===============================
+   FONDO GENERAL
+=============================== */
+.login-page {
+    min-height: 100vh;
+    background-image: url('/public/img/login-bg.jpg'); /* 👈 tu imagen */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Overlay oscuro */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.75);
+}
+
+/* ===============================
+   CONTENEDOR LOGIN
+=============================== */
+.login-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 35px 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* ===============================
+   HEADER
+=============================== */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.login-header p {
+    font-size: 14px;
+    color: #64748b;
+    margin-top: 6px;
+}
+
+/* ===============================
+   FORMULARIO
+=============================== */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    padding: 11px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #cbd5f5;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+}
+
+/* ===============================
+   BOTÓN
+=============================== */
+.btn-login {
+    margin-top: 10px;
+    padding: 12px;
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-login:hover {
+    background: #1d4ed8;
+}
+
+/* ===============================
+   FOOTER
+=============================== */
+.login-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 480px) {
+    .login-container {
+        margin: 0 15px;
+        padding: 30px 22px;
+    }
+}

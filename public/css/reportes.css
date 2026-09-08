@@ -1,0 +1,369 @@
+/* =========================
+   RESET + BOX MODEL
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   VARIABLES GLOBALES
+========================= */
+:root {
+  --primary: #032757;
+  --female: #BD004E;
+  --bg: #F2EBEB;
+  --text: #0A0000;
+  --white: #ffffff;
+
+  --sidebar-width: 200px;
+  --gap: 10px;
+  --radius: 6px;
+
+  --sidebar-bg: #032757;
+  --sidebar-hover: #334155;
+  --sidebar-text: #e5e7eb;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
+
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  padding: 16px 10px;
+
+  background-color: var(--sidebar-bg);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 3px 0 10px rgba(0,0,0,0.25);
+  z-index: 1000;
+}
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 14px;
+  margin: 3px 0;
+
+  color: var(--sidebar-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: var(--radius);
+
+  transition: all 0.2s ease;
+}
+
+.sidebar a:hover {
+  background-color: var(--sidebar-hover);
+  color: var(--white);
+  transform: translateX(3px);
+}
+
+.sidebar a.active {
+  background-color: var(--primary);
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* Botón cerrar sesión */
+.sidebar a:last-child {
+  margin-top: auto;
+  background-color: var(--female);
+  color: var(--white);
+}
+
+.sidebar a:last-child:hover {
+  background-color: #a50043;
+}
+
+/* ===============================
+   SELECTOR DE AÑO (SIDEBAR)
+================================ */
+.year-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 6px;
+  gap: 6px;
+
+  background-color: rgba(255,255,255,0.08);
+  border-radius: 8px;
+}
+
+.year-selector input {
+  width: 48px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.year-btn {
+  width: 26px;
+  height: 26px;
+  background-color: rgba(255,255,255,0.18);
+  border: none;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.year-btn:hover {
+  background-color: rgba(255,255,255,0.35);
+}
+
+/* =========================
+   CONTENIDO BASE
+========================= */
+.content-base {
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+
+  min-height: 100vh;
+  background: var(--bg);
+
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+}
+
+/* =========================
+   PANEL DE REPORTES
+========================= */
+.report-panel {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius);
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+
+.report-header h2 {
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+
+.report-header p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* =========================
+   GRID DE REPORTES
+========================= */
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--gap);
+  margin-top: 20px;
+}
+
+.report-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  border-left: 5px solid var(--primary);
+
+  transition: transform .2s, box-shadow .2s;
+}
+
+.report-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,.12);
+}
+
+.report-info h3 {
+  font-size: 16px;
+}
+
+.report-path {
+  font-size: 12px;
+  color: #555;
+  word-break: break-all;
+}
+
+/* =========================
+   BOTÓN COPIAR
+========================= */
+.btn-copy {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-copy:hover {
+  background: var(--sidebar-hover);
+}
+
+/* =========================
+   ASIGNACIÓN DE ACCESOS
+========================= */
+.asignacion_acceso_user_reporte {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+#formUsuarioReporte {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--gap);
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+#btnGuardar {
+  background: var(--primary);
+  color: var(--white);
+}
+
+#btnCancelar {
+  background: var(--female);
+  color: var(--white);
+}
+
+/* =========================
+   TABLA
+========================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: var(--primary);
+  color: var(--white);
+}
+
+th, td {
+  padding: 10px;
+  font-size: 14px;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--bg);
+}
+
+tbody tr:hover {
+  background: #eaeaea;
+}
+
+/* =========================
+   BOTONES TABLA
+========================= */
+.btnEditar {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+table form button {
+  background: var(--female);
+  color: var(--white);
+  border: none;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .content-base {
+    margin-left: 0;
+  }
+
+  .sidebar a {
+    white-space: nowrap;
+  }
+
+  #formUsuarioReporte {
+    grid-template-columns: 1fr;
+  }
+
+  .report-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
